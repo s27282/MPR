@@ -89,11 +89,20 @@ Set<Person> immutablePersonSet= Set.of(person,person2,person3);
         List<String> nameList = immutablePersonList.stream()
                 .map(Person::getName)
                 .collect(Collectors.toList());
+         System.out.println("Lista imion: " + nameList);
 
-        System.out.println("Lista imion: " + nameList);
+        List<Person>listOver25 = immutablePersonList.stream()
+        .filter(p-> p.getAge()>25)
+        .toList();
+        
+        System.out.println("Lista powyzej 25: " + listOver25);
+        
 
-
-
+        List<Person> sortedList= immutablePersonList.stream()
+                .sorted(Comparator.comparing(Person::getName))
+                .toList();
+        
+        System.out.println("Lista posortowana: " + sortedList);
 
     }
 }
